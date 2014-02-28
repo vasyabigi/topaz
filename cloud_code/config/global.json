@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "rambo"
+        }, 
+        "rambo": {
+            "applicationId": "xybfNvfjOv2IKuUUpLgnImgPQm93FlwhIovKfeju", 
+            "masterKey": "VGTGfJFl9HyZ1KN7xjEdA2BGVN2nyeQj4kNoZwAm"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.17"
+    }
+}
