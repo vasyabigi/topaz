@@ -18,11 +18,14 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
   </head>
   <body ng-app="topazApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <!-- Async Social SDKs -->
+    <div id="fb-root"></div>
 
     <!-- Add your site or application content here -->
     <div class="container" ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
@@ -38,6 +41,22 @@
        ga('send', 'pageview');
     </script>
 
+    <script type="text/javascript">
+      (function(doc, script) {
+        var js,
+            fjs = doc.getElementsByTagName(script)[0],
+            add = function(url, id) {
+                if (doc.getElementById(id)) {return;}
+                js = doc.createElement(script);
+                js.src = url;
+                id && (js.id = id);
+                fjs.parentNode.insertBefore(js, fjs);
+            };
+        // Facebook SDK
+        add('//connect.facebook.net/en_US/all.js', 'facebook-jssdk');
+      }(document, 'script'));
+    </script>
+
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -45,15 +64,17 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/parse-angular-patch/dist/parse-angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/services/topaz.js"></script>
         <!-- endbuild -->
 </body>
 </html>

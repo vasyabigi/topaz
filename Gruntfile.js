@@ -143,7 +143,8 @@ module.exports = function (grunt) {
     coffee: {
       options: {
         sourceMap: true,
-        sourceRoot: ''
+        sourceRoot: '',
+        bare: true
       },
       dist: {
         files: [{
