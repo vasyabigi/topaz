@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('topazApp')
-  .controller 'MainCtrl', ($scope, Topaz) ->
+  .controller 'MainCtrl', ($scope, Pusher, Topaz) ->
     # ALL CODE INSIDE IS ONLY FOR TESTS
     $scope.user = Parse.User.current()
 
@@ -41,7 +41,10 @@ angular.module('topazApp')
         test.save(topaz).then (response) ->
           $scope.data = response
           $scope.topaz = {}
-          $scope.topazes.unshift(response)
+
+          Parse.Cloud.run("hello", {id: response.id}, (results) ->
+            console.log results
+          )
       else
         form.submitted = true
 
@@ -50,3 +53,9 @@ angular.module('topazApp')
     topazes.query().limit(5).find().then((response) ->
       $scope.topazes = response
     )
+
+    Pusher.subscribe('topazes', 'new', ((data) ->
+      topazes.query().get(JSON.parse(data.body).id).then((response) ->
+        $scope.topazes.unshift(response)
+      )
+    ))

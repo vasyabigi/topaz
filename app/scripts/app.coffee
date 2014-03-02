@@ -1,13 +1,15 @@
 'use strict'
 
-angular.module('topazApp', ['parse-angular'])
-  .config(->
+angular.module('topazApp', ['parse-angular', 'doowb.angular-pusher'])
+  .config((PusherServiceProvider) ->
     Parse.initialize "xybfNvfjOv2IKuUUpLgnImgPQm93FlwhIovKfeju", "n6ItrOMIIaXuXMssLW4rB3k0b5LKlVQPd0G5oQ0f"
 
     fbDeferred = $.Deferred()
     window.fbPromise = fbDeferred.promise()
     window.fbAsyncInit = ->
       fbDeferred.resolve()
+
+    PusherServiceProvider.setToken('83915278656e66d15149').setOptions({})
 
     window.fbPromise.then( ->
       Parse.FacebookUtils.init
