@@ -8,12 +8,6 @@
     <button type="submit" class="btn btn-lg btn-success" ng-href="#">Create</button>
   </form>
 
-  <form name="questionForm" ng-submit="createQuestion()">
-    Question title:
-    <input type="text" name="title" ng-model="question.title" required />
-    <button type="submit" class="btn btn-lg btn-success" ng-href="#">Create</button>
-  </form>
-
   <p ng-show="topazForm.submitted && topazForm.$invalid">NOT ENOUGH DATA BLYAD!!!</p>
   <h2>LAST RESULT:</h2>
   <ul ng-show="data">
@@ -21,13 +15,6 @@
     <li>User: {{ data.getUser().attributes.name }}</li>
     <li>Id: {{ data.id }}</li>
     <li>Created at: {{ data.createdAt|date:'short' }}</li>
-  </ul>
-</div>
-
-<div>
-  <p>Last questions:</p>
-  <ul>
-    <li ng-repeat="question in questions">Title: {{ question.getTitle() }}</li>
   </ul>
 </div>
 
