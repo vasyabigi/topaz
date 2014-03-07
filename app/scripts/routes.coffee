@@ -14,9 +14,18 @@ angular.module('topazApp').config ['$stateProvider', '$urlRouterProvider', ($sta
       url: '/main'
       templateUrl: 'views/main.html'
 
-    .state 'app.question',
-      url: '/question'
-      templateUrl: 'views/question.html'
+    .state 'app.details',
+      url: '/question/:id'
+      templateUrl: 'views/question-details.html'
+      controller: 'QuestionDetailsCtrl'
+      resolve:
+        questionData: ($stateParams)->
+          return $stateParams.id;
+
+    .state 'app.create',
+      url: '/create'
+      templateUrl: 'views/question-create.html'
+      controller: 'QuestionCreateCtrl'
 
     .state 'app.topazes',
       url: '/topazes'

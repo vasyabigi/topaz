@@ -10,8 +10,12 @@
     </div>
     <div class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="app.question">Create question</a></li>
-        <li><a ui-sref="app.topazes">All topazes</a></li>
+        <li ui-sref="app.create" ui-sref-active='active'>
+          <a href='#'>Create question</a>
+        </li>
+        <li ui-sref="app.topazes" ui-sref-active='active'>
+          <a href='#'>All topazes</a>
+        </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

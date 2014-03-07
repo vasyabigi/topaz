@@ -1,5 +1,3 @@
-'use strict'
-
 angular.module('topazApp')
   .controller 'MainCtrl', ($scope, Pusher, Topaz, User, Question) ->
     # ALL CODE INSIDE IS ONLY FOR TESTS
