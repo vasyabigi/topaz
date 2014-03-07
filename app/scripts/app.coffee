@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('topazApp', ['parse-angular', 'doowb.angular-pusher'])
+angular.module('topazApp', ['parse-angular', 'doowb.angular-pusher', 'ui.router'])
   .config((PusherServiceProvider) ->
     Parse.initialize "xybfNvfjOv2IKuUUpLgnImgPQm93FlwhIovKfeju", "n6ItrOMIIaXuXMssLW4rB3k0b5LKlVQPd0G5oQ0f"
 

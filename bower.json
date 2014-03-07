@@ -8,7 +8,8 @@
     "jquery": "~2.1.0",
     "sass-bootstrap": "~3.0.2",
     "parse-angular-patch": "*",
-    "angular-pusher": "~0.0.7"
+    "angular-pusher": "~0.0.7",
+    "angular-ui-router": "0.2.8-bowratic-tedium"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
