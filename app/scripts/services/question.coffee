@@ -31,3 +31,17 @@ angular.module('topazApp')
       )
 
       deferred.promise
+
+    get: (id) ->
+      deferred = $q.defer()
+
+      collection = new Questions()
+      collection.fetch
+        success: (collection) ->
+          item = collection.get(id)
+          if item != undefined
+            deferred.resolve item
+          else
+            deferred.reject()
+
+      deferred.promise
