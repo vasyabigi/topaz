@@ -1,2 +1,9 @@
-<div>create question view</div>
-<div>{{pop}}</div>
+<form name="questionForm" ng-submit="createQuestion()" role="form">
+  <div class="form-group">
+    <label for="question">Question title:</label>
+    <input class="form-control" type="text" id="question" name="title" ng-model="question.title" required />
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-lg btn-success" ng-href="#">Create</button>
+  </div>
+</form>

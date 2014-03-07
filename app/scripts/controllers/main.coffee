@@ -42,14 +42,3 @@ angular.module('topazApp')
       )
     ))
 
-    $scope.questions = []
-    $scope.question = {}
-
-    Question.all().then (items) ->
-      $scope.questions = items
-
-    $scope.createQuestion = ->
-      Question.create($scope.question.title).then (object) ->
-        $scope.question = {}
-        Question.all().then (items) ->
-          $scope.questions = items
