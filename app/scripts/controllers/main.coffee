@@ -1,34 +1,18 @@
 'use strict'
 
 angular.module('topazApp')
-  .controller 'MainCtrl', ($scope, Pusher, Topaz) ->
+  .controller 'MainCtrl', ($scope, Pusher, Topaz, User) ->
     # ALL CODE INSIDE IS ONLY FOR TESTS
-    $scope.user = Parse.User.current()
+    $scope.user = User.current()
 
     $scope.login = ->
-      Parse.FacebookUtils.logIn 'email',
-        success: (user) ->
-          unless user.existed()
-            console.log "User signed up and logged in through Facebook!"
-            FB.api('/me', {fields: 'name,email,username,link'}, (response) ->
-              user.save(
-                name: response.name
-                username: response.username
-                email: response.email
-                link: response.link
-              ).then((respone) ->
-                $scope.user = respone
-              )
-            )
-          else
-            console.log "User logged in through Facebook!"
-            $scope.user = user
-
-        error: (user, error) ->
-          alert "User cancelled the Facebook login or did not fully authorize."
+      User.login().then((user) ->
+        $scope.user = user
+      )
 
     $scope.logout = ->
-      $scope.user = Parse.User.logOut()
+      User.logout()
+      $scope.user = User.current()
 
     $scope.topaz = {}
     $scope.topazes = []
@@ -42,9 +26,9 @@ angular.module('topazApp')
           $scope.data = response
           $scope.topaz = {}
 
-          # Parse.Cloud.run("hello", {id: response.id}, (results) ->
-          #   console.log results
-          # )
+          Parse.Cloud.run("hello", {id: response.id}, (results) ->
+            console.log results
+          )
       else
         form.submitted = true
 
