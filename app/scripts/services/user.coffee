@@ -33,3 +33,6 @@ angular.module('topazApp')
 
     current: ->
       Parse.User.current()
+
+    isAuth: ->
+      Boolean(Parse.User.current())
