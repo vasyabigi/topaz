@@ -2,7 +2,7 @@
 
 angular.module('topazApp', ['parse-angular', 'doowb.angular-pusher'])
   .config((PusherServiceProvider) ->
-    Parse.initialize "xybfNvfjOv2IKuUUpLgnImgPQm93FlwhIovKfeju", "n6ItrOMIIaXuXMssLW4rB3k0b5LKlVQPd0G5oQ0f"
+    Parse.initialize "fTTyy0H38pgtBgPNLvDZKOrvarGwe7DcLVFfYFdF", "IAsbU53QGranXVVMEfmT5AmArDaCRAu15xBmNyil"
 
     fbDeferred = $.Deferred()
     window.fbPromise = fbDeferred.promise()
