@@ -10,6 +10,8 @@ angular.module('topazApp')
     Questions = Parse.Collection.extend
       model: Question
 
+    collection = new Questions()
+
     create: (title) ->
       deferred = $q.defer()
 
@@ -18,13 +20,12 @@ angular.module('topazApp')
         success: (object) ->
           deferred.resolve object
       )
-
+      collection.add({title: title})
       deferred.promise
 
     all: ->
       deferred = $q.defer()
 
-      collection = new Questions()
       collection.fetch(
         success: (collection) ->
           deferred.resolve collection.models
@@ -33,15 +34,6 @@ angular.module('topazApp')
       deferred.promise
 
     get: (id) ->
-      deferred = $q.defer()
+      query = new Parse.Query(Question)
+      query.get(id)
 
-      collection = new Questions()
-      collection.fetch
-        success: (collection) ->
-          item = collection.get(id)
-          if item != undefined
-            deferred.resolve item
-          else
-            deferred.reject()
-
-      deferred.promise
