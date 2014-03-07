@@ -42,9 +42,9 @@ angular.module('topazApp')
           $scope.data = response
           $scope.topaz = {}
 
-          Parse.Cloud.run("hello", {id: response.id}, (results) ->
-            console.log results
-          )
+          # Parse.Cloud.run("hello", {id: response.id}, (results) ->
+          #   console.log results
+          # )
       else
         form.submitted = true
 

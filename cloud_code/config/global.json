@@ -1,13 +1,13 @@
 {
     "applications": {
         "_default": {
-            "link": "rambo"
-        }, 
-        "rambo": {
-            "applicationId": "xybfNvfjOv2IKuUUpLgnImgPQm93FlwhIovKfeju", 
-            "masterKey": "VGTGfJFl9HyZ1KN7xjEdA2BGVN2nyeQj4kNoZwAm"
+            "link": "topaz"
+        },
+        "topaz": {
+            "applicationId": "fTTyy0H38pgtBgPNLvDZKOrvarGwe7DcLVFfYFdF",
+            "masterKey": "hcDtAcCsvFjY23CZ55wytqsTZtmoyWyuw2OaQpC7"
         }
-    }, 
+    },
     "global": {
         "parseVersion": "1.2.17"
     }
