@@ -1,15 +1,5 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li ng-hide="user"><a href="javascript:;" ng-click="login()">Login</a></li>
-    <li ng-show="user"><a href="javascript:;" ng-click="logout()">Logout</a></li>
-    <li class="active"><a ng-href="#">Home</a></li>
-  </ul>
-  <h3 class="text-muted">topaz</h3>
-</div>
-
-<div class="jumbotron">
+<div>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     User: {{ user.attributes.name }}
   </p>
   <form name="topazForm" novalidate ng-submit="createSomeTopaz(topazForm, topaz)">
@@ -32,8 +22,4 @@
   <ul>
     <li ng-repeat="topaz in topazes|limitTo:5">Name: {{ topaz.getName() }}. Created at: {{ topaz.createdAt|date:'short' }}</li>
   </ul>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
 </div>

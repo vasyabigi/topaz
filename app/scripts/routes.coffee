@@ -1,22 +1,26 @@
 
 angular.module('topazApp').config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider)->
 
-  $urlRouterProvider.otherwise('/app');
+  $urlRouterProvider.otherwise '/app/main'
 
   $stateProvider
-    .state('app', {
-      url: '/app',
-      templateUrl: 'views/main.html',
+    .state 'app',
+      url: '/app'
+      abstract: true
+      templateUrl: 'views/base.html'
       controller: 'MainCtrl'
-    })
 
-    # .state('app.login', {
-    #   url: '/login',
-    #   views: {
-    #     'planContent': {
-    #       templateUrl: 'views/login.html'
-    #     }
-    #   }
-    # })
+    .state 'app.main',
+      url: '/main'
+      templateUrl: 'views/main.html'
+
+    .state 'app.question',
+      url: '/question'
+      templateUrl: 'views/question.html'
+
+    .state 'app.topazes',
+      url: '/topazes'
+      templateUrl: 'views/topazes.html'
+
   return angular;
 ];
