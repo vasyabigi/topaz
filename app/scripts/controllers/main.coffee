@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('topazApp')
-  .controller 'MainCtrl', ($scope, Pusher, Topaz, User) ->
+  .controller 'MainCtrl', ($scope, Pusher, Topaz, User, Question) ->
     # ALL CODE INSIDE IS ONLY FOR TESTS
     $scope.user = User.current()
 
@@ -43,3 +43,15 @@ angular.module('topazApp')
         $scope.topazes.unshift(response)
       )
     ))
+
+    $scope.questions = []
+    $scope.question = {}
+
+    Question.all().then (items) ->
+      $scope.questions = items
+
+    $scope.createQuestion = ->
+      Question.create($scope.question.title).then (object) ->
+        $scope.question = {}
+        Question.all().then (items) ->
+          $scope.questions = items
