@@ -15,9 +15,8 @@ angular.module('topazApp')
 
       model = new Question()
       model.save({title: title},
-        success: (result) ->
-          asJSON = result.toJSON()
-          deferred.resolve asJSON
+        success: (object) ->
+          deferred.resolve object
       )
 
       deferred.promise
