@@ -37,3 +37,4 @@ angular.module('topazApp')
       query = new Parse.Query(Question)
       query.get(id)
 
+    model: Question

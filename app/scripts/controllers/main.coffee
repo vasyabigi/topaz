@@ -1,5 +1,5 @@
 angular.module('topazApp')
-  .controller 'MainCtrl', ($scope, Pusher, Topaz, User, Question) ->
+  .controller 'MainCtrl', ($scope, Pusher, Topaz, User, Question, Choice) ->
     # ALL CODE INSIDE IS ONLY FOR TESTS
     $scope.user = User.current()
 
@@ -42,3 +42,19 @@ angular.module('topazApp')
       )
     ))
 
+    $scope.questions = []
+    $scope.question = {}
+
+    Question.all().then (items) ->
+      $scope.questions = items
+
+    $scope.createQuestion = ->
+      Question.create($scope.question.title).then (question) ->
+        $scope.question = {}
+        # Question.all().then (items) ->
+        #   $scope.questions = items
+
+        choiceCollection = new Choice.collection()
+        choiceCollection.forQuestion(question).then((choices) ->
+          console.log choices
+        )
