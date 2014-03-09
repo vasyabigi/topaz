@@ -2,16 +2,16 @@
   <p class="lead">
     User: {{ user.attributes.name }}
   </p>
-  <form name="topazForm" novalidate ng-submit="createSomeTopaz(topazForm, topaz)">
-    Name:
-    <input type="text" name="topaz" ng-model="topaz.name" required />
+  <form name="questionForm" novalidate ng-submit="createQuestion(questionForm)">
+    Question:
+    <input type="text" name="title" ng-model="question.title" required />
     <button type="submit" class="btn btn-lg btn-success" ng-href="#">Create</button>
   </form>
 
-  <p ng-show="topazForm.submitted && topazForm.$invalid">NOT ENOUGH DATA BLYAD!!!</p>
+  <p ng-show="questionForm.submitted && questionForm.$invalid">NOT ENOUGH DATA BLYAD!!!</p>
   <h2>LAST RESULT:</h2>
   <ul ng-show="data">
-    <li>Name: {{ data.getName() }}</li>
+    <li>Name: {{ data.getTitle() }}</li>
     <li>User: {{ data.getUser().attributes.name }}</li>
     <li>Id: {{ data.id }}</li>
     <li>Created at: {{ data.createdAt|date:'short' }}</li>
@@ -21,6 +21,6 @@
 <div>
   <p>Last created topazes:</p>
   <ul>
-    <li ng-repeat="topaz in topazes|limitTo:5">Name: {{ topaz.getName() }}. Created at: {{ topaz.createdAt|date:'short' }}</li>
+    <li ng-repeat="question in topazes|limitTo:5">Name: {{ question.getName() }}. Created at: {{ question.createdAt|date:'short' }}</li>
   </ul>
 </div>
