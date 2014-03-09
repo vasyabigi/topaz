@@ -20,6 +20,7 @@ angular.module('topazApp')
 
         # Save question to backend and redirect to details page
         $scope.questions.addQuestion($scope.question).then (question) ->
+          $scope.question = {}
           $state.go 'app.details', 'id': question.id
 
       else

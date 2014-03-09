@@ -2,7 +2,7 @@
 
 var Pusher = require('cloud/pusher.js'),
   _ = require('underscore'),
-  Choice = Parse.Object.extend("Choice");
+  Choice = Parse.Object.extend('Choice');
 
 var pusher = new Pusher({
   appId: '67502',

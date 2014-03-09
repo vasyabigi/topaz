@@ -1,3 +1,10 @@
 <div>
-  {{ question|json }}
+  <h1>{{ question.getTitle() }}</h1>
+  <p>Choices:</p>
+  <ul>
+    <li ng-repeat="choice in choices.models">
+      <img ng-src="http://graph.facebook.com/{{ choice.get('user').get('facebookId') }}/picture?type=square" />
+      {{ choice.get('user').get('name') }}
+    </li>
+  </ul>
 </div>

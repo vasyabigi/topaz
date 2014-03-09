@@ -9,8 +9,9 @@ angular.module('topazApp')
         success: (user) ->
           unless user.existed()
             console.log "User signed up and logged in through Facebook!"
-            FB.api('/me', {fields: 'name,email,username,link'}, (response) ->
+            FB.api('/me', {fields: 'id,name,email,username,link'}, (response) ->
               user.save(
+                facebookId: response.id
                 name: response.name
                 username: response.username
                 email: response.email

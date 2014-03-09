@@ -1,5 +1,3 @@
-'use strict'
-
 angular.module('topazApp')
   .factory 'Question', ($q)->
     Question = Parse.Object.extend(
@@ -12,8 +10,8 @@ angular.module('topazApp')
     Questions = Parse.Collection.extend
       model: Question
 
-      # comparator: (model) ->
-      #   -model.createdAt.getTime()
+      comparator: (model) ->
+        -model.createdAt.getTime()
 
       query: ->
         new Parse.Query("Question").descending("createdAt")

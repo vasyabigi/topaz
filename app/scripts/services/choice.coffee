@@ -1,13 +1,13 @@
 'use strict'
 
 angular.module('topazApp')
-  .factory 'Choice', (Question, $q)->
+  .factory 'Choice', ($q)->
     Choice = Parse.Object.extend(
       className: 'Choice'
 
-      getQuestion: -> @get 'question'
-
       getUser: -> @get 'user'
+
+      getQuestion: -> @get 'question'
     )
 
     model: Choice
@@ -22,9 +22,12 @@ angular.module('topazApp')
         new Parse.Query('Choice')
 
       forQuestion: (question) ->
-        q = new Question.model()
-        q.id = question.objectId
-        @query().equalTo("question", q).find()
+        # Find all choices for specific question
+        @query().equalTo("question", question).include(["user"]).find().then((choices) =>
+          # Add each choice to current collection
+          _.each choices, (choice) =>
+            @add choice
+        )
     )
 
     model: Choice

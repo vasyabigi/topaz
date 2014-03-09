@@ -1,4 +1,3 @@
-
 angular.module('topazApp').config ($stateProvider, $urlRouterProvider) ->
 
   $urlRouterProvider.otherwise '/app/main'
@@ -21,7 +20,6 @@ angular.module('topazApp').config ($stateProvider, $urlRouterProvider) ->
       resolve:
         currentQuestion: (Question, $stateParams)->
           questionQuery = new Parse.Query(Question.model)
-          questionQuery.include(['choice'])
           questionQuery.get($stateParams.id)
 
     .state 'app.results',
