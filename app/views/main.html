@@ -1,7 +1,4 @@
 <div>
-  <p class="lead">
-    User: {{ user.attributes.name }}
-  </p>
   <form name="questionForm" novalidate ng-submit="createQuestion(questionForm)">
     Question:
     <input type="text" name="title" ng-model="question.title" required />
@@ -19,8 +16,8 @@
 </div>
 
 <div>
-  <p>Last created topazes:</p>
+  <p>Last created questions:</p>
   <ul>
-    <li ng-repeat="question in topazes|limitTo:5">Name: {{ question.getName() }}. Created at: {{ question.createdAt|date:'short' }}</li>
+    <li ng-repeat="question in questions.models|limitTo:5">{{ question.getTitle() }}</li>
   </ul>
 </div>

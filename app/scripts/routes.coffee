@@ -1,5 +1,5 @@
 
-angular.module('topazApp').config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
+angular.module('topazApp').config ($stateProvider, $urlRouterProvider) ->
 
   $urlRouterProvider.otherwise '/app/main'
 
@@ -19,17 +19,13 @@ angular.module('topazApp').config ['$stateProvider', '$urlRouterProvider', ($sta
       templateUrl: 'views/question-details.html'
       controller: 'QuestionDetailsCtrl'
       resolve:
-        questionId: ($stateParams)->
-          return $stateParams.id
+        currentQuestion: (Question, $stateParams)->
+          questionQuery = new Parse.Query(Question.model)
+          questionQuery.include(['choice'])
+          questionQuery.get($stateParams.id)
 
-    .state 'app.create',
-      url: '/create'
-      templateUrl: 'views/question-create.html'
-      controller: 'QuestionCreateCtrl'
+    .state 'app.results',
+      url: '/question/:id/results'
+      templateUrl: 'views/question-results.html'
 
-    .state 'app.topazes',
-      url: '/topazes'
-      templateUrl: 'views/topazes.html'
-
-  return angular
-]
+  angular

@@ -20,3 +20,15 @@ angular.module('topazApp', ['parse-angular', 'doowb.angular-pusher', 'ui.router'
         frictionlessRequests: true # recommended
     )
   )
+  .run(($rootScope, User) ->
+    $rootScope.user = User.current()
+
+    $rootScope.login = ->
+      User.login().then((user) ->
+        $rootScope.user = user
+      )
+
+    $rootScope.logout = ->
+      User.logout()
+      $rootScope.user = User.current()
+  )

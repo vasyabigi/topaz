@@ -23,8 +23,8 @@ angular.module('topazApp')
 
         question = new Question()
         question.save(data).then((response) =>
-          @add data
-          deferred.resolve data
+          @add response
+          deferred.resolve response
         , (errors) ->
           deferred.reject errors
         )

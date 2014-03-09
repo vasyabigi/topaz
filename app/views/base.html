@@ -9,18 +9,10 @@
       </button>
     </div>
     <div class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li ui-sref="app.create" ui-sref-active='active'>
-          <a href='#'>Create question</a>
-        </li>
-        <li ui-sref="app.topazes" ui-sref-active='active'>
-          <a href='#'>All topazes</a>
-        </li>
-      </ul>
-
       <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="user"><a href="#" ng-click="login()">Login</a></li>
-        <li ng-show="user"><a href="#" ng-click="logout()">Logout</a></li>
+        <li ng-hide="user"><a href="javascript:;" ng-click="login()">Login</a></li>
+        <li ng-show="user"><a href="javascript:;">{{ user.attributes.name }}</a></li>
+        <li ng-show="user"><a href="javascript:;" ng-click="logout()">Logout</a></li>
       </ul>
 
     </div>
