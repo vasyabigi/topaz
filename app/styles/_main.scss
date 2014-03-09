@@ -1,7 +1,5 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
-@import 'sass-bootstrap/lib/bootstrap';
-
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -88,4 +86,31 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
+}
+
+.list {
+  list-style: none outside none;
+  margin: 10px 0 30px;
+}
+
+.apps-container {
+  border: 2px dashed #77f;
+  margin: 10px 10px 0 0;
+  padding: 5px;
+}
+
+.choice-item {
+  // float: left;
+  height: 38px;
+  width: 100px;
+  padding: 5px 0;
+  margin: 15px;
+  text-align: center;
+  cursor: move;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.choice-item_placeholder {
+  opacity: .6;
 }
