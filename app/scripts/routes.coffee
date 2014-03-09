@@ -1,5 +1,5 @@
 
-angular.module('topazApp').config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider)->
+angular.module('topazApp').config ['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
 
   $urlRouterProvider.otherwise '/app/main'
 
@@ -20,7 +20,7 @@ angular.module('topazApp').config ['$stateProvider', '$urlRouterProvider', ($sta
       controller: 'QuestionDetailsCtrl'
       resolve:
         questionId: ($stateParams)->
-          return $stateParams.id;
+          return $stateParams.id
 
     .state 'app.create',
       url: '/create'
@@ -31,5 +31,5 @@ angular.module('topazApp').config ['$stateProvider', '$urlRouterProvider', ($sta
       url: '/topazes'
       templateUrl: 'views/topazes.html'
 
-  return angular;
-];
+  return angular
+]
