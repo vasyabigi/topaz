@@ -93,24 +93,40 @@ body {
   margin: 10px 0 30px;
 }
 
-.apps-container {
-  border: 2px dashed #77f;
+.choices-container {
+  float: left;
+  width: 120px;
+  min-height: 60px;
+  border: 1px solid #77f;
   margin: 10px 10px 0 0;
-  padding: 5px;
+  padding: 0;
+}
+
+.choices-list {
+  width: 300px;
+
+  .choice-item {
+    width: auto;
+  }
 }
 
 .choice-item {
-  // float: left;
-  height: 38px;
-  width: 100px;
-  padding: 5px 0;
-  margin: 15px;
+  width: 100%;
+  position: relative;
+  float: left;
+  vertical-align: top;
+  padding: 2px;
+  margin: 3px;
   text-align: center;
   cursor: move;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
-.choice-item_placeholder {
-  opacity: .6;
+.choice-item.placeholder {
+  opacity: .9;
+  width: 100%;
+  height: 80px;
+}
+.choice-item .label {
+  position: absolute;
+  top: -4px;
+  left: 0;
 }

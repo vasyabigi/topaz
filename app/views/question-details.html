@@ -1,10 +1,11 @@
+<!--
 <h1>{{ question.getTitle() }}</h1>
 <h2>Choices</h2>
 <div ui-sortable="sortableOptions"
   class="apps-container screen clearfix"
   ng-model="choices.models">
   <div class="choice-item btn btn-info" ng-repeat="choice in choices.models">
-    <img ng-src="http://graph.facebook.com/{{ choice.get('user').get('facebookId') }}/picture?type=square" />
+    <img ng-src="http://graph.facebook.com/{{ choice.get('user').get('username') }}/picture?type=square" />
     {{ choice.get('user').get('name') }}
   </div>
 </div>
@@ -15,5 +16,38 @@
   ng-model="votes">
   <div class="choice-item btn btn-info" ng-repeat="vote in votes">
     <img ng-src="http://graph.facebook.com/{{ vote.get('user').get('facebookId') }}/picture?type=square" />
+  </div>
+</div>
+-->
+<div>
+  <h1>{{ question.getTitle() }}</h1>
+
+  <div class='panel panel-primary pull-left'>
+    <div class='panel-heading'>Choices:</div>
+    <div class='panel-body'>
+      <ul ui-sortable='sortableOptions'
+        class='choices-container list well clearfix choices-list'
+        ng-model='choices.models'>
+        <li class='choice-item' ng-repeat='choice in choices.models'>
+          <img ng-src='http://graph.facebook.com/{{ choice.get("user").get("username") }}/picture?type=square' />
+          <p>{{ choice.get('user').get('name') }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class='panel panel-info pull-left mll'>
+    <div class='panel-heading'>Votes:</div>
+    <div class='panel-body'>
+      <ul ui-sortable='sortableOptions'
+        class='choices-container list well clearfix'
+        ng-model='votes'>
+        <li class='choice-item' ng-repeat='vote in votes'>
+          <div class='label label-info'>{{ $index + 1 }}</div>
+          <img ng-src='http://graph.facebook.com/{{ vote.get("user").get("username") }}/picture?type=square' />
+          <p>{{ vote.get('user').get('name') }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

@@ -11,5 +11,6 @@ angular.module('topazApp')
     $scope.votes = []
 
     $scope.sortableOptions =
-      placeholder: "choice-item choice-item_placeholder btn btn-info"
-      connectWith: ".apps-container"
+      placeholder: "choice-item placeholder",
+      connectWith: ".choices-container",
+      revert: 100
