@@ -22,17 +22,6 @@ angular.module('topazApp')
         currentQuestion: (Question, $stateParams)->
           questionQuery = new Parse.Query(Question.model)
           questionQuery.get($stateParams.id)
-        questionData: (Question, $state, $q, $stateParams)->
-          defer = $q.defer()
-          Question.get($stateParams.id).then(
-            (data)->
-              defer.resolve data
-            (err)->
-              defer.reject(err)
-              $state.go 'app.main'
-          )
-          defer.promise;
-
     .state 'app.create',
       url: '/create'
       templateUrl: 'views/question-create.html'
@@ -50,4 +39,3 @@ angular.module('topazApp')
         console.warn 'Login first!!!'
         event.preventDefault()
         $state.go 'app.main'
-

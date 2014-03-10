@@ -4,18 +4,7 @@
     <input type="text" name="title" ng-model="question.title" required />
     <button type="submit" class="btn btn-lg btn-success" ng-href="#">Create</button>
   </form>
-
   <p ng-show="questionForm.submitted && questionForm.$invalid">NOT ENOUGH DATA BLYAD!!!</p>
-  <h2>LAST RESULT:</h2>
-  <ul ng-show="data">
-    <li>Name: {{ data.getTitle() }}</li>
-    <li>User: {{ data.getUser().attributes.name }}</li>
-    <li>Id: {{ data.id }}</li>
-    <li>Created at: {{ data.createdAt|date:'short' }}</li>
-  </ul>
-</div>
-
-<div>
   <p>Last created questions:</p>
   <ul>
     <li ng-repeat="question in questions.models|limitTo:5"><a ui-sref="app.details({id: question.id })">{{ question.getTitle() }}</a></li>
